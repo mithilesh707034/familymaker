@@ -1,0 +1,101 @@
+{% extends "index.html" %}
+{%load static%}
+{%block body%}
+{%if msg%}
+<script>
+  alert("Your Query has been submited successfully...")
+</script>
+{%endif%}
+      <!-- contact us start here -->
+      <div id="contact-us">
+        <h1 class="contact-heading">Contact Us</h1>
+        <div class="contact-us-container">
+          <div class="contact-us-form">
+            <form method="post">
+              {%csrf_token%}
+              <div>
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Enter Your Name"  required/>
+              </div>
+              <div>
+                <label for="number">Phone Number</label>
+                <input
+                  type="number"min="5000000000"max="9999999999"
+                  name="phone"
+                  id="number"
+                  placeholder="Enter Your Phone Number" required/>
+              </div>
+              <div>
+                <label for="email">Emails</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Enter Your Email"required />
+              </div>
+              <div>
+                <label for="message">Messages</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  cols="30"
+                  rows="10" required></textarea>
+              </div>
+              <button type="submit" class="read-more-btn">Submit</button>
+            </form>
+          </div>
+          <div class="contact-us-map">
+            <img src="https://monamehra.com/uploads/cc.jpg" alt="" />
+            <div id="social-media-icons-carousel">
+              <ul>
+                <li>
+                  <a href="">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="">
+                    <i class="fa fa-youtube"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <i class="fa fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="contact-us-email">
+              <span>Email:</span>
+              <a href="mailto:mona@visionsearch.co.in"
+                >mona@visionsearch.co.in</a
+              >
+              <a href="mailto:mona@monamehra.com">mona@monamehra.com</a>
+            </div>
+            <div class="contact-us-phone">
+              <span>Whatsapp:</span>
+              <a href="tel:+919999340004">+91-9999340004</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- contact us ends here -->
+
+      {%endblock%}

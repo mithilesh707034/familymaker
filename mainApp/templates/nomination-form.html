@@ -1,0 +1,491 @@
+{% extends "index.html" %}
+{%load static%}
+{%block body%}
+      <!-- donate start here -->
+      <div id="donate">
+        <!-- <div class="donate-container"> -->
+          <h2 class="nomination-heading">Nomination Form</h2>
+          <!-- <p>
+            We are organizing the second Familymaker Awards to honor and
+            acknowledge the work of homemakers. Who exactly is a homemaker, is
+            one is the biggest question? We all start and go back to a Home at
+            the end of the day and make one, then it makes all of us a
+            homemaker. But one person ends up taking more accountability and
+            responsibility of running a household. The person plays the role of
+            a mother (can be played by any gender). 
+          </p>
+          <p>
+             Families are nurtured in a Home and it takes loads of work to make
+            a house into a Home. Homemaker is not gender specific and as a
+            family it gets to be the onus of each one to contribute to make one.
+            However, there are multiple dimensions working simultaneously when
+            children or elderly are involved.
+          </p>
+          <p>
+            There are many aspects involved in running a household, many of them
+            fall under the category of chores (cooking, cleaning etc.) and many
+            in relationships (parenting, caregiving, couple relationships etc.).
+            The responsibility of various tasks might be shared but the
+            accountability or onus lies with one person as when something goes
+            right or wrong after the task, one person is held accountable. The
+            person who holds the accountability of running a household is the
+            primary Familymaker.   
+          </p>
+          <p>
+            As each one of us starts from a Home, skill building and inculcation
+            of values starts from a Home. Leadership, EQ, teamwork, cooperation,
+            patience, tolerance and many other skills are learned in a home
+            living with people. Our endeavor is to propagate the family values
+            which increasingly are getting lost due to the rapid
+            commercialization of living. The society accepts work as work only
+            when done for money and nobody does anything for money in a Home.
+            The significance of work in a home is lost when it lacks its due
+            respect. These awards are to regain the respect for the work done in
+            a home. Work can be done by domestic helps but majority of the
+            population cannot afford and do the work themselves which takes time
+            and efforts.
+          </p>
+          <p>More about our work can be checked out at www.monamehra.com </p>
+          <p>
+            Processing Fees of 500/- would be charged per registration .This
+            includes the social media presence and promotion of the nominees on
+            our social media pages.  The awardees will be finalized based on
+            answers, likes on social media and final interview of the selected
+            candidates.  
+          </p>
+          <p>Paytm to Mona Mehra at +91-9999340004 and share a screenshot. </p> -->
+        <!-- </div> -->
+        {%if msg%}
+        <script>
+          alert("Your data has been submited successfully...")
+        </script>
+        {%endif%}
+        <div class="contact-us-container">
+          <div class="contact-us-form" id="nomeni-form">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div>
+                <label for="email">Email <span>*</span></label>
+                <input
+                  type="email"name="email"id="email" placeholder="Enter Your Email" required/>
+              </div>
+              <div>
+                <label for="name">Name <span>*</span></label>
+                <input type="text" name="name" id="name" placeholder="Enter Your Name" required/>
+              </div>
+              <div>
+                <label for="email">Age <span>*</span> </label>
+                <div class="nomination-age">
+                  <input type="radio" name="age" id="radio-btn" /> 18 - 25 Years
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="age" id="radio-btn" /> 25 - 35 Years
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="age" id="radio-btn" /> 35 - 45 Years
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="age" id="radio-btn" /> 45 - 60 Years
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="age" id="radio-btn" /> 60+ Years
+                </div>
+              </div>
+              <div>
+                <label for="mobile">Mobile <span>*</span></label>
+                <input
+                  type="number"min="5000000000"max="9999999999"
+                  name="mobile"
+                  id="mobile"
+                  placeholder="Enter Your Mobile Number" required />
+              </div>
+              <div>
+                <label for="location">Location <span>*</span></label>
+                <input
+                  type="text"
+                  name="location"
+                  id="location"
+                  placeholder="Enter Your Location" />
+              </div>
+              <!-- <div>
+                <label for="email">Email <span>*</span></label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Enter Your Email" />
+              </div> -->
+              <div>
+                <label for="nomine-name"
+                  >Name of the person you would like to nominate. You can
+                  nominate yourself also. <span>*</span></label
+                >
+                <input
+                  type="text"
+                  name="nomine-name"
+                  id="nomine-name"
+                  placeholder="Enter Your Nomine Name" />
+              </div>
+              <div>
+                <label for=""
+                  >Q1. Cooking is a critical activity in a home. Do you agree?
+                  <span>*</span></label
+                >
+                <div class="nomination-age">
+                  <input type="radio" name="q1" id="radio-btn" />Yes
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q1" id="radio-btn" />No
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q1" id="radio-btn" />Other
+                  <input type="text" name="q1_others" id="">
+                </div>
+              </div>
+              <div>
+                <label for=""
+                  >Q2- Taste of food made by Mother/Father or family member is better than the food made by cook or bought from outside? <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="radio" name="q2" id="radio-btn" />Yes
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q2" id="radio-btn" />No
+                </div>
+              </div>
+              <div>
+                <label for=""
+                  >Q3- The food cooked in a home is tastier, healthier and more nutritive as- <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q3" id="radio-btn" />The intent of the maker is crucial
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q3" id="radio-btn" />Emotions involved in making food are important
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q3" id="radio-btn" />Choice of right ingredients is important
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q3" id="radio-btn" />Outside food is better
+                </div>
+              </div>
+              <div>
+                <label for="email">Q4- On an average, how much time it takes to prepare 3 meals in a day? <span>*</span> </label>
+                <div class="nomination-age">
+                  <input type="radio" name="q4" id="radio-btn" /> 90 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q4" id="radio-btn" /> 120 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q4" id="radio-btn" /> 180 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q4" id="radio-btn" /> I supervise as cook does it
+                </div>
+              </div>
+              <div>
+                <label for=""
+                  >Q5- Who is responsible and accountable for cooking in your home? <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q5" id="radio-btn" />Myself
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q5" id="radio-btn" />Spouse
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q5" id="radio-btn" />Maid
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q5" id="radio-btn" />Other
+                </div>
+              </div>
+              <div>
+                <label for="email">Q6- Laundry is a tough task and apart from machine wash, drying, folding, pressing, it takes a lot of time. How much time do you spend on this chore in a day?  <span>*</span> </label>
+                <div class="nomination-age">
+                  <input type="radio" name="q6" id="radio-btn" /> 30 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q6" id="radio-btn" /> 45 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q6" id="radio-btn" /> 60 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q6" id="radio-btn" /> none
+                </div>
+              </div>
+              <div>
+                <label for=""
+                  >Q7- Clean clothes are essential for a family because- <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q7" id="radio-btn" />Neat and clean clothes are gives us a good feel
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q7" id="radio-btn" />Clothes not only cover our body but also improves our personality
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q7" id="radio-btn" />Dirty clothes carry many germ and bacteria which can cause infection in our bodies.
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q7" id="radio-btn" />Clean clothes make us upset and unhealthy
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q7" id="radio-btn" />Other
+                  <input type="text" name="q7_others" id="">
+                </div>
+              </div>
+              <div>
+                <label for="email">Q8- Deep cleaning of household require curtains, upholstery, fans, cupboards etc. How much time do you spend in a week on this?    <span>*</span> </label>
+                <div class="nomination-age">
+                  <input type="radio" name="q8" id="radio-btn" /> 30 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q8" id="radio-btn" /> 60 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q8" id="radio-btn" /> 90 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q8" id="radio-btn" /> 120 min
+                </div>
+              </div>
+              <div>
+                <label for=""
+                  >Q9-Mopping, Cleaning, dusting is essential in a Home because – <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q9" id="radio-btn" />Cleanliness is next to godliness
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q9" id="radio-btn" />Clean surroundings make our thoughts pure
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q9" id="radio-btn" />Sanitization is essential for healthy living
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q9" id="radio-btn" />No cleaning is required
+                </div>
+              </div>
+              <div>
+                <label for=""
+                  >Q10-Children require attention, care and support, especially when they are young? <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="radio" name="q10" id="radio-btn" />Yes
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q10" id="radio-btn" />No
+                </div>
+              </div>
+              <div>
+                <label for=""
+                  >Q11-As children grow up, they require mentoring and guidance as - <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q11" id="radio-btn" />They do not have the experience and knowledge
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q11" id="radio-btn" />They require handholding to walk an unknown path
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q11" id="radio-btn" />Peer-pressure makes them confused
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q11" id="radio-btn" />There is no need for mentoring and guidance
+                </div>
+              </div>
+              <div>
+                <label for="email">Q12- Learning of a child starts from a Home. Teaching a child is a tough task and takes lots of time and effort. How much time do you spend teaching your child in a week?    <span>*</span> </label>
+                <div class="nomination-age">
+                  <input type="radio" name="q12" id="radio-btn" /> 30 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q12" id="radio-btn" /> 60 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q12" id="radio-btn" /> 90 min +
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q12" id="radio-btn" /> none as tutor does teaching
+                </div>
+              </div>
+              <div>
+                <label for=""
+                  >Q13-Preperation of children in exam time requires extra efforts. Who is responsible and accountable for exam results?  <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q13" id="radio-btn" />Myself
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q13" id="radio-btn" />Spouse
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q13" id="radio-btn" />Tutor
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q13" id="radio-btn" />Other
+                </div>
+              </div>
+              <div>
+                <label for=""
+                  >Q14- Elderly require caretaking as – <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q14" id="radio-btn" />They are unable to do their own work
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q14" id="radio-btn" />With age their mental agility has reduced
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q14" id="radio-btn" />They need help as body degeneration has happened
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q14" id="radio-btn" />No caretaking is required
+                </div>
+              </div>
+              <div>
+                <label for="email">Q15- How much time you spend on caretaking of elderly in your household? <span>*</span> </label>
+                <div class="nomination-age">
+                  <input type="radio" name="q15" id="radio-btn" /> 30 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q15" id="radio-btn" /> 60 min
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q15" id="radio-btn" /> 90 min 
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q15" id="radio-btn" /> None
+                </div>
+              </div>
+              <div>
+                <label for="email">Q16- Do you think a mother is a leader or a manager?     <span>*</span> </label>
+                <div class="nomination-age">
+                  <input type="radio" name="q16" id="radio-btn" /> Leader
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q16" id="radio-btn" /> Manager
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q16" id="radio-btn" /> Both
+                </div>
+              </div>
+               <div>
+                <label for=""
+                  >Q17- As a parent, you are a leader who is followed by your child. Your actions and talk should  -  <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q17" id="radio-btn" />Be good as you are a role model
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q17" id="radio-btn" />Be inspiring as you are being followed
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q17" id="radio-btn" />Gives them the right message
+                </div>
+                <div class="nomination-age">
+                  <input type="checkbox" name="q17" id="radio-btn" />It is not significant
+                </div>
+              </div>
+               <div>
+                <label for="email">Q18- How would you rate yourself as a parent? <span>*</span> </label>
+                <p>Use the value system of honesty, integrity, mentoring, guidance, caretaking, cooperation and understanding as benchmark. <br>(5 is highest and 1 is lowest) <br> If children are not there, you can leave the question.</p>
+                <div class="nomination-button">
+                    <p>Need to improve</p>
+                    <div class="nomination-form">
+                      <input type="radio" name="q18" id="radio-btn" /> 1
+                    </div>
+                    <div class="nomination-form">
+                      <input type="radio" name="q18" id="radio-btn" /> 2
+                    </div>
+                    <div class="nomination-form">
+                      <input type="radio" name="q18" id="radio-btn" /> 3
+                    </div>
+                    <div class="nomination-form">
+                      <input type="radio" name="q18" id="radio-btn" /> 4
+                    </div>
+                    <div class="nomination-form">
+                      <input type="radio" name="q18" id="radio-btn" /> 5
+                    </div>
+                    <p>Did my best</p>
+                </div>
+              </div>
+              <div>
+                <label for="email">Q19- How would you rate yourself as a daughter/son-in-law? <span>*</span> </label>
+                <p>Use the value system of caretaking, helpful, cooperation and understanding as benchmark.  <br>(5 is highest and 1 is lowest) <br> Leave it if not applicable to you </p>
+                <div class="nomination-button">
+                    <p>Need to improve</p>
+                    <div class="nomination-form">
+                      <input type="radio" name="q19" id="radio-btn" /> 1
+                    </div>
+                    <div class="nomination-form">
+                      <input type="radio" name="q19" id="radio-btn" /> 2
+                    </div>
+                    <div class="nomination-form">
+                      <input type="radio" name="q19" id="radio-btn" /> 3
+                    </div>
+                    <div class="nomination-form">
+                      <input type="radio" name="q19" id="radio-btn" /> 4
+                    </div>
+                    <div class="nomination-form">
+                      <input type="radio" name="q19" id="radio-btn" /> 5
+                    </div>
+                    <p>Did my best</p>
+                </div>
+              </div>
+              <div>
+                   <label for=""
+                  >Q20-How can we make happy home and families? Share your views.  <span>*</span></label
+                >
+                <textarea
+                  name="q20"
+                  id="message"
+                  cols="30"
+                  rows="5"></textarea>
+              </div>
+              <div>
+                   <label for=""
+                  >Q21-As a familymaker you have a lot many responsibilities. Outline your main responsibilities and how do you manage them   <span>*</span></label
+                >
+                <textarea
+                  name="q21"
+                  id="message"
+                  cols="30"
+                  rows="5"></textarea>
+              </div>
+               <div>
+                   <label for=""
+                  >Q-22-How as a mother ( role can be played by any gender) you have been able to change the lives of your family members in a positive way?  <span>*</span></label
+                >
+                <textarea
+                  name="q22"
+                  id="message"
+                  cols="30"
+                  rows="5"></textarea>
+              </div>
+              <div>
+                <label for=""
+                  >Q23 - Did you pay the registration fees of Rs 500 and shared the screenshot on the mobile number of Mona Mehra 9999340004 ? Do share your picture also. <span>*</span>
+                </label>
+                <div class="nomination-age">
+                  <input type="radio" name="q23" id="radio-btn" />Yes
+                </div>
+                <div class="nomination-age">
+                  <input type="radio" name="q23" id="radio-btn" />No
+                </div> 
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Please put your picture here <span>*</span></label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="picture">
+              </div>
+              <input type="submit" value="Submit">
+             
+                
+      </div>
+    </div>
+    <!-- donate ends here -->
+    {%endblock%}
